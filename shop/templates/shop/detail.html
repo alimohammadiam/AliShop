@@ -12,7 +12,7 @@
 
         <div class="product_detail">
             <h2>{{ product.name }}</h2>
-            <p>دسته بندی:{{ product.name }}</p>
+            <p>دسته بندی:{{ product.category }}</p>
             <p>موجودی:{{ product.inventory }}</p>
             <ul>
                 {% for f in product.features.all %}
@@ -29,7 +29,7 @@
 
         <div class="product_images">
             {% for img in product.image.all %}
-                <img src=""{{ img.file.url }}>
+                <img src="{{ img.file.url }}">
             {% endfor %}
         </div>
 

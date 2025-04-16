@@ -25,6 +25,7 @@ def product_detail(request, id, slug):
 
     context = {
         'product': product
+
     }
     return render(request, 'shop/detail.html', context)
 
