@@ -1,0 +1,16 @@
+<div class="cart-container">
+    {% with item_count=cart|length %}
+        <a href="#" class="cart-link">
+            <div class="cart-info-container">
+                <span class="cart-icon">
+                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#343a40" width="28" height="28">
+                     <path d="M7 4h14l-1.5 9h-11l-1.5-9zm13.6-2h-17.6l1 6h16.2l-1-6zm-7.5 18c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm-7 0c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2z"/>
+                    </svg>
+                </span>
+                <span class="cart-info">
+                    <span class="cart-count">{{ item_count }}</span>items, <span class="total-price">{{ cart.get_total_price }}</span>
+                </span>
+            </div>
+        </a>
+    {% endwith %}
+</div>

@@ -193,3 +193,65 @@ body {
     color: #555;
     line-height: 1.6;
 }
+
+/* تنظیمات کلی سبد خرید */
+.cart-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cart-container:hover {
+    background-color: #e9ecef;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* تنظیمات Flexbox برای چیدمان متن و آیکون */
+.cart-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #343a40;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* تنظیمات SVG آیکون */
+.cart-icon {
+    flex-shrink: 0; /* جلوگیری از تغییر اندازه */
+    margin-right: 10px;
+}
+
+.cart-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: #343a40;
+    transition: fill 0.3s ease, transform 0.3s ease;
+}
+
+.cart-container:hover .cart-icon svg {
+    fill: #007bff;
+    transform: scale(1.1);
+}
+
+/* تنظیمات اطلاعات سبد خرید */
+.cart-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* فاصله بین متن‌ها */
+}
+
+.cart-count {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.total-price {
+    font-size: 18px;
+    color: #28a745;
+    font-weight: bold;
+}
