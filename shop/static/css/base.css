@@ -255,3 +255,154 @@ body {
     color: #28a745;
     font-weight: bold;
 }
+
+/* ------------------------------
+   استایل‌های صفحه سبد خرید
+--------------------------------*/
+
+/* استایل کلی محتوا */
+.cart-content {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* استایل آیتم ها (محصولات در سبد) */
+.product-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    direction: rtl; /* جهت راست به چپ برای نمایش مناسب متن فارسی */
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+/* استایل تصویر محصول */
+.product-item a img {
+    width: 200px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+/* استایل بخش اطلاعات محصول */
+.product-info {
+    flex-grow: 1;
+}
+
+.product-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.product-info h3 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.product-info h3 a:hover {
+    color: #007bff;
+}
+
+.product-info p {
+    font-size: 16px;
+    color: #555;
+    margin: 6px 0;
+}
+
+.product-info p span {
+    font-weight: bold;
+    color: #000;
+}
+
+/* استایل بخش قیمت کل‌ها */
+.total-price {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e9ecef;
+    text-align: right;
+    direction: rtl;
+}
+
+.total-price p {
+    font-size: 18px;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.total-price p span {
+    font-weight: bold;
+}
+
+/* استایل دکمه‌های پرداخت/ادامه خرید */
+.checkout-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    direction: rtl;
+    gap: 20px;
+}
+
+.checkout-buttons a {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 4px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* دکمه ادامه خرید */
+.continue-btn a {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.continue-btn a:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+}
+
+/* دکمه برگشت به لیست محصولات */
+.back-btn a {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.back-btn a:hover {
+    background-color: #5a6268;
+    transform: scale(1.03);
+}
+
+/* ------------------------------
+   استایل ریسپانسیو برای موبایل
+--------------------------------*/
+@media (max-width: 768px) {
+    .product-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-item a img {
+        margin-bottom: 15px;
+    }
+
+    .checkout-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .checkout-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+}
