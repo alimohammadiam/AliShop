@@ -323,6 +323,12 @@ body {
     color: #000;
 }
 
+/*------------------------------*/
+
+
+
+/*--------------------------------*/
+
 /* استایل بخش قیمت کل‌ها */
 .total-price {
     margin-top: 20px;
@@ -405,4 +411,49 @@ body {
         width: 100%;
         text-align: center;
     }
+}
+
+/* تنظیمات کلی برای بخش عملیات */
+.action {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* استایل دکمه‌های افزایش، کاهش و حذف */
+.action button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* افکت هاور برای دکمه‌های + و - */
+.quantity-add:hover,
+.quantity-decrease:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    transform: scale(1.1);
+}
+
+/* دکمه حذف */
+.quantity-remove {
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.quantity-remove:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
 }
