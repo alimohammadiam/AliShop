@@ -8,7 +8,7 @@ def send_sms_with_template(receptor, tokens: dict, template):
     """
     try:
         api = KavenegarAPI(
-            ''
+            '6D4874766C44655279436D4835727367456750522F386A56636B54445745323876495857544355314A74453D'
         )
         params = {
             'receptor': receptor,
@@ -32,12 +32,12 @@ def send_sms_normal(receptor, message):
 
     try:
         api = KavenegarAPI(
-            ''
+            '6D4874766C44655279436D4835727367456750522F386A56636B54445745323876495857544355314A74453D'
         )
         params_buyer = {
             'receptor': receptor,
             'message': message,
-            'sender': ''
+            'sender': '2000660110'
         }
         response = api.sms_send(params_buyer)
         print(response)
