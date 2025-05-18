@@ -20,7 +20,7 @@ def verify_phone(request):
             else:
                 tokens = {'token': ''.join(random.choices('0123456789', k=6))}
                 request.session['verification_code'] = tokens['token']
-                request.phone = phone
+                request.session['phone'] = phone
                 print(tokens)
                 # send_sms_with_template('09925126890', tokens, 'verify')
                 messages.error(request, 'verification code send successfully.')
@@ -31,4 +31,21 @@ def verify_phone(request):
 
 
 def verify_code(request):
-    pass
+    if request.method == 'POST':
+        code = request.POST.get('code')
+        if code:
+            verification_code = request.session['verification_code']
+            phone = request.session['phone']
+            if code == verification_code:
+                user = ShopUser.objects.create_user(phone=phone)
+                user.set_password('123456')
+                user.save()
+                # send sms
+                print(user)
+                login(request, user)
+                del request.session['verification_code']
+                del request.session['phone']
+                return redirect('shop:product_list')
+            else:
+                messages.error(request, 'Verification code is incorrect.')
+    return render(request, 'verify_code.html')
