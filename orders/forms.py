@@ -2,6 +2,7 @@ import re
 from django import forms
 from django.core.exceptions import ValidationError
 from account.models import ShopUser
+from .models import Order
 
 
 class PhoneVerificationForm(forms.Form):
@@ -30,3 +31,10 @@ class PhoneVerificationForm(forms.Form):
             raise ValidationError("این شماره تلفن قبلاً ثبت شده است.")
 
         return phone
+
+
+class OrderCreateForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['first_name', 'last_name', 'phone', 'address', 'postal_code', 'province',
+                  'city']
