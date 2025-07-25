@@ -1,7 +1,14 @@
 from django.contrib import admin
 from .models import Order, OrderItem
+import openpyxl
+from django.http import HttpResponse
 
 # Register your models here.
+
+
+def export_to_excel(modeladmin, request, queryset):
+    response = HttpResponse(content_type='applications/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=orders.xlsx'
 
 
 class OrderItemInline(admin.TabularInline):
