@@ -1,5 +1,6 @@
 from shop.models import Product
-from .serializers import ProductSerializer, ShopUserSerializer, UserRegistrationSerializer
+from orders.models import Order
+from .serializers import ProductSerializer, ShopUserSerializer, UserRegistrationSerializer, OrderSerializer
 from rest_framework import generics
 from rest_framework import views
 from account.models import ShopUser
@@ -8,6 +9,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from rest_framework.authentication import BasicAuthentication
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from .permissions import IsAdminTabriz, IsBuyer
 
 
 # class ProductListAPIView(generics.ListAPIView):
@@ -24,7 +26,7 @@ class ProductViewSets(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    @action(detail=False, methods=['GET'], url_path='discount_products', url_name='discount_products',
+    @action(detail=False, methods=['GET' ], url_path='discount_products', url_name='discount_products',
             permission_classes=[AllowAny])
     def discount_products(self, request):
         min_discount = request.query_params.get('min_discount', 0)
@@ -51,3 +53,15 @@ class UserRegistrationAPIView(generics.CreateAPIView):
     permission_classes = [AllowAny]
     queryset = ShopUser.objects.all()
     serializer_class = UserRegistrationSerializer
+
+
+class OrderListAPIView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsAdminTabriz]
+
+
+class OrderDetailAPIView(generics.RetrieveAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    permission_classes = [IsBuyer ]
